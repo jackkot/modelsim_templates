@@ -34,7 +34,7 @@ proc compile_tb {} {
 	variable SIM_INC
 
 	vlog -sv -work work +incdir$SIM_INC [list "$WORK_PREFIX/testbench.sv"]
-	vsim -wlf "$WORK_PREFIX/modelsim/testbench.wlf" -voptargs="+acc" \
+	vsim -wlf "$WORK_PREFIX/modelsim/testbench.wlf" -voptargs="+acc" +nowarn3116 \
 		-L work -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclone10lp_ver \
 		testbench
 
