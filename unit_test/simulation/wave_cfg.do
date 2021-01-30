@@ -9,7 +9,7 @@ add wave -noupdate -label negEdgeStr -radix hexadecimal -radixshowbase 0 /__test
 add wave -noupdate -label up_event -radix hexadecimal -radixshowbase 0 /__testrunner/__ts/testbench_ut/up_event
 add wave -noupdate -label down_event -radix hexadecimal -radixshowbase 0 /__testrunner/__ts/testbench_ut/down_event
 add wave -noupdate -label _event -radix hexadecimal -radixshowbase 0 /__testrunner/__ts/testbench_ut/_event
-add wave -noupdate -label _event_n -radix hexadecimal -radixshowbase 0 /__testrunner/__ts/testbench_ut/_event_n
+add wave -noupdate -label _event_n -radix decimal /__testrunner/__ts/testbench_ut/_event_n
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {144827 ps} 0}
 quietly wave cursor active 1

@@ -1,6 +1,7 @@
-# transcript off
+transcript off
 
 onerror {global errorInfo; echo $errorInfo; abort}
+onbreak {wave zoom full}
 
 # set WORK_PREFIX [file dirname [file normalize [info script]]]
 set WORK_PREFIX [expr {[file tail [pwd]] == "modelsim"} ? {".."} : {"."}]
@@ -50,9 +51,6 @@ proc compile_tb {} {
 	do "$WORK_PREFIX/wave_cfg.do"
 	run -all
 }
-
-# onerror {stop}
-# onbreak {wave zoom full}
 
 # save waveform formats
 proc save  {} {global WORK_PREFIX; write format wave "$WORK_PREFIX/wave_cfg.do"}
