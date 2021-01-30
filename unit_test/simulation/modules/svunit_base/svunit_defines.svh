@@ -1,13 +1,13 @@
 //###########################################################################
 //
-//  Copyright 2011 XtremeEDA Corp.
-//  
+//  Copyright 2011 The SVUnit Authors.
+//
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
-//  
+//
 //      http://www.apache.org/licenses/LICENSE-2.0
-//  
+//
 //  Unless required by applicable law or agreed to in writing, software
 //  distributed under the License is distributed on an "AS IS" BASIS,
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -21,43 +21,55 @@
 */
 `ifndef FAIL_IF
 `define FAIL_IF(exp) \
-  if (svunit_pkg::current_tc.fail(`"fail_if`", (exp), `"exp`", `__FILE__, `__LINE__)) begin \
-    if (svunit_pkg::current_tc.is_running()) svunit_pkg::current_tc.give_up(); \
+  begin \
+    if (svunit_pkg::current_tc.fail(`"fail_if`", (exp), `"exp`", `__FILE__, `__LINE__)) begin \
+      if (svunit_pkg::current_tc.is_running()) svunit_pkg::current_tc.give_up(); \
+    end \
   end
 `endif
 
 `ifndef FAIL_IF_LOG
 `define FAIL_IF_LOG(exp,msg) \
-  if (svunit_pkg::current_tc.fail(`"fail_if`", (exp), `"exp`", `__FILE__, `__LINE__, msg)) begin \
-    if (svunit_pkg::current_tc.is_running()) svunit_pkg::current_tc.give_up(); \
+  begin \
+    if (svunit_pkg::current_tc.fail(`"fail_if`", (exp), `"exp`", `__FILE__, `__LINE__, msg)) begin \
+      if (svunit_pkg::current_tc.is_running()) svunit_pkg::current_tc.give_up(); \
+    end \
   end
 `endif
 
 `ifndef FAIL_IF_EQUAL
 `define FAIL_IF_EQUAL(a,b) \
-  if (svunit_pkg::current_tc.fail(`"fail_if_equal`", ((a)===(b)), `"(a) === (b)`", `__FILE__, `__LINE__)) begin \
-    if (svunit_pkg::current_tc.is_running()) svunit_pkg::current_tc.give_up(); \
+  begin \
+    if (svunit_pkg::current_tc.fail(`"fail_if_equal`", ((a)===(b)), `"(a) === (b)`", `__FILE__, `__LINE__)) begin \
+      if (svunit_pkg::current_tc.is_running()) svunit_pkg::current_tc.give_up(); \
+    end \
   end
 `endif
 
 `ifndef FAIL_UNLESS
 `define FAIL_UNLESS(exp) \
-  if (svunit_pkg::current_tc.fail(`"fail_unless`", !(exp), `"exp`", `__FILE__, `__LINE__)) begin \
-    if (svunit_pkg::current_tc.is_running()) svunit_pkg::current_tc.give_up(); \
+  begin \
+    if (svunit_pkg::current_tc.fail(`"fail_unless`", !(exp), `"exp`", `__FILE__, `__LINE__)) begin \
+      if (svunit_pkg::current_tc.is_running()) svunit_pkg::current_tc.give_up(); \
+    end \
   end
 `endif
 
 `ifndef FAIL_UNLESS_LOG
 `define FAIL_UNLESS_LOG(exp,msg) \
-  if (svunit_pkg::current_tc.fail(`"fail_unless`", !(exp), `"exp`", `__FILE__, `__LINE__, msg)) begin \
-    if (svunit_pkg::current_tc.is_running()) svunit_pkg::current_tc.give_up(); \
+  begin \
+    if (svunit_pkg::current_tc.fail(`"fail_unless`", !(exp), `"exp`", `__FILE__, `__LINE__, msg)) begin \
+      if (svunit_pkg::current_tc.is_running()) svunit_pkg::current_tc.give_up(); \
+    end \
   end
 `endif
 
 `ifndef FAIL_UNLESS_EQUAL
 `define FAIL_UNLESS_EQUAL(a,b) \
-  if (svunit_pkg::current_tc.fail(`"fail_unless_equal`", ((a)!==(b)), `"(a) !== (b)`", `__FILE__, `__LINE__)) begin \
-    if (svunit_pkg::current_tc.is_running()) svunit_pkg::current_tc.give_up(); \
+  begin \
+    if (svunit_pkg::current_tc.fail(`"fail_unless_equal`", ((a)!==(b)), `"(a) !== (b)`", `__FILE__, `__LINE__)) begin \
+      if (svunit_pkg::current_tc.is_running()) svunit_pkg::current_tc.give_up(); \
+    end \
   end
 `endif
 
@@ -204,4 +216,4 @@ end \
             else \
                 wait( svunit_ut.is_running() ); \
         end \
-    end   
+    end
