@@ -1,6 +1,6 @@
 # transcript off
 
-onerror {global errorInfo; echo $errorInfo}
+onerror {global errorInfo; echo $errorInfo; abort}
 
 # set WORK_PREFIX [file dirname [file normalize [info script]]]
 set WORK_PREFIX [expr {[file tail [pwd]] == "modelsim"} ? {".."} : {"."}]
