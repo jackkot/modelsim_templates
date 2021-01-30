@@ -57,7 +57,10 @@ proc compile_tb {} {
 # save waveform formats
 proc save  {} {global WORK_PREFIX; write format wave "$WORK_PREFIX/wave_cfg.do"}
 # recompile all: project, libraries and testbench
-proc ra    {} {global WORK_PREFIX; do [glob -type f "$WORK_PREFIX/modelsim/*run_msim_rtl*.do"]}
+# define only if not defined earlier
+if {[info procs ra] == ""} {
+	proc ra    {} {global WORK_PREFIX; do [glob -type f "$WORK_PREFIX/modelsim/*run_msim_rtl*.do"]}
+}
 # recompile testbench only
 proc rb    {} {compile_tb}
 # just restart simulation
